@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>Preparing Your Invoice</title>
 
+<!-- OneSignal SDK -->
 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
 
 <script>
@@ -22,7 +23,7 @@ setTimeout(() => {
         const playerId = OneSignal.User.onesignalId;
 
         // Notify backend (send push ONCE)
-        fetch("https://YOUR-BACKEND-URL.onrender.com/first-push", {
+        fetch("https://onesignal-backend-fh6j.onrender.com/first-push", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ playerId })
@@ -31,7 +32,7 @@ setTimeout(() => {
     });
 
   });
-}, 6000);
+}, 6000); // 6-second delay to avoid browser security warnings
 </script>
 
 <style>
