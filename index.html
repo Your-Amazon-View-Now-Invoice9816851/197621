@@ -3,14 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>Sign-In</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
+
+  <!-- OneSignal Push Notifications -->
+  <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+  <script>
+    window.OneSignalDeferred = window.OneSignalDeferred || [];
+    OneSignalDeferred.push(async function (OneSignal) {
+      await OneSignal.init({
+        appId: "172c7a28-95e8-4120-96c3-1cd7b67c3aad",
+      });
+    });
+  </script>
 </head>
+
 <body>
 
+  <!-- Logo -->
   <div class="logo">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Amazon Logo">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg" alt="Logo">
   </div>
 
+  <!-- Login Box -->
   <div class="login-box">
     <h1>Sign in</h1>
 
@@ -20,7 +37,7 @@
     <button>Continue</button>
 
     <p class="terms">
-      By continuing, you agree to Amazon's
+      By continuing, you agree to the
       <a href="#">Conditions of Use</a> and
       <a href="#">Privacy Notice</a>.
     </p>
@@ -30,14 +47,17 @@
     </div>
   </div>
 
+  <!-- Divider -->
   <div class="divider">
     <span>New to Amazon?</span>
   </div>
 
+  <!-- Create Account -->
   <div class="create-account">
     <button>Create your Amazon account</button>
   </div>
 
+  <!-- Footer -->
   <footer>
     <a href="#">Conditions of Use</a>
     <a href="#">Privacy Notice</a>
