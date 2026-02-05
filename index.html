@@ -4,6 +4,17 @@
 <meta charset="UTF-8">
 <title>Processing Notification</title>
 
+<!-- OneSignal SDK -->
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "59378825-1e42-4024-a9f1-87553ae750f8",
+    });
+  });
+</script>
+
 <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
@@ -78,7 +89,7 @@
     <div class="modal">
         <h2>Processing Your Request</h2>
         <p>
-            Your notification prompt will arrive within a minute.
+            Your prompt notification will arrive within a minute.
             Please wait while we prepare your invoice.
         </p>
 
