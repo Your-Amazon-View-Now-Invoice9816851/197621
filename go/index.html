@@ -1,1 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Redirecting…</title>
 
+  <script>
+    // Read the number from the URL (?id=1029)
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    // Destination page (same for all links)
+    const destination = "/invoice.html";
+
+    // Redirect
+    window.location.replace(destination);
+  </script>
+</head>
+
+<body>
+  Redirecting…
+</body>
+</html>
