@@ -1,88 +1,105 @@
 <html lang="en"><head>
 <meta charset="UTF-8">
-<title>Amazon.com - Invoice</title>
+<title>Invoice</title>
 
 <style>
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        background-color: #ffffff;
-        color: #111;
-        margin: 0;
-        padding: 0;
-    }
-    .page {
-        max-width: 900px;
-        margin: auto;
-        padding: 20px;
-    }
-    .top-bar {
-        border-bottom: 1px solid #ddd;
-        padding-bottom: 10px;
-    }
-    .amazon-logo {
-        width: 120px;
-    }
-    h1 {
-        font-size: 22px;
-        margin-top: 20px;
-    }
-    .order-meta {
-        font-size: 14px;
-        margin-top: 5px;
-    }
-    .address-section {
-        display: flex;
-        justify-content: space-between;
-        margin-top: 20px;
-        font-size: 14px;
-    }
-    .box {
-        width: 48%;
-    }
-    .section-title {
-        font-weight: bold;
-        margin-bottom: 5px;
-    }
-    .item {
-        display: flex;
-        margin-top: 25px;
-        border-top: 1px solid #ddd;
-        padding-top: 15px;
-    }
-    .item img {
-        width: 140px;
-        margin-right: 20px;
-    }
-    .item-details {
-        flex: 1;
-        font-size: 14px;
-    }
-    .item-title {
-        font-weight: bold;
-        color: #007185;
-    }
-    .price {
-        font-weight: bold;
-        margin-top: 5px;
-    }
-    .summary {
-        width: 300px;
-        float: right;
-        margin-top: 20px;
-        font-size: 14px;
-    }
-    .summary table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-    .summary td {
-        padding: 6px 0;
-    }
-    .summary .total {
-        font-weight: bold;
-        border-top: 1px solid #ddd;
-    }
-    /* Remove small footer styling */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #ffffff;
+    color: #111;
+    margin: 0;
+    padding: 0;
+}
+.page {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+.top-bar {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+}
+.amazon-logo {
+    width: 120px;
+}
+h1 {
+    font-size: 22px;
+    margin-top: 20px;
+}
+.order-meta {
+    font-size: 14px;
+    margin-top: 5px;
+}
+.address-section {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.box {
+    width: 48%;
+}
+.section-title {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.item {
+    display: flex;
+    margin-top: 25px;
+    border-top: 1px solid #ddd;
+    padding-top: 15px;
+}
+.item img {
+    width: 140px;
+    margin-right: 20px;
+}
+.item-details {
+    flex: 1;
+    font-size: 14px;
+}
+.item-title {
+    font-weight: bold;
+    color: #007185;
+}
+.price {
+    font-weight: bold;
+    margin-top: 5px;
+}
+.summary {
+    width: 300px;
+    float: right;
+    margin-top: 20px;
+    font-size: 14px;
+}
+.summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.summary td {
+    padding: 6px 0;
+}
+.summary .total {
+    font-weight: bold;
+    border-top: 1px solid #ddd;
+}
+
+/* CANCEL BUTTON STYLE */
+.cancel-btn {
+    display: inline-block;
+    margin-top: 15px;
+    background: linear-gradient(#ffb84d,#ff9900);
+    color: #111;
+    padding: 12px 22px;
+    font-size: 15px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 6px;
+    box-shadow: 0 4px 0 #cc7a00;
+    transition: 0.15s;
+}
+.cancel-btn:hover {
+    transform: translateY(-1px);
+}
 </style>
 <meta name="GENERATOR" content="MSHTML 11.00.10570.1001"></head>
 
@@ -92,7 +109,7 @@
 
     <!-- Header -->
     <div class="top-bar">
-        <img class="amazon-logo" alt="Amazon Logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg">
+        <img class="amazon-logo" src="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg">
     </div>
 
     <h1>Invoice</h1>
@@ -109,7 +126,7 @@
             John Miller<br>
             221B Market Street<br>
             San Jose, CA 95131<br>
-            United States<br>
+            United States
         </div>
 
         <div class="box">
@@ -123,7 +140,7 @@
 
     <!-- Item -->
     <div class="item">
-        <img alt="iPhone Pro Max" src="https://m.media-amazon.com/images/I/71yzJoE7WlL._AC_SL1500_.jpg">
+        <img src="https://m.media-amazon.com/images/I/71yzJoE7WlL._AC_SL1500_.jpg">
 
         <div class="item-details">
             <div class="item-title">
@@ -162,15 +179,21 @@
         </tbody></table>
     </div>
 
-    <div style="color: rgb(17, 17, 17); clear: both; font-size: 14px; margin-top: 20px;">
+    <!-- Footer / Disclaimer -->
+    <div style="clear: both; font-size: 14px; margin-top: 20px;">
         Payment Method: Visa ending in 4821<br>
-        Shipment: Amazon Prime – FREE Delivery<br><br>
+        Shipment: Prime – FREE Delivery<br><br>
 
-        <strong>Disclaimer:</strong> If this order was not placed by you or an authorized family member, we kindly request that you contact our customer support team at 1800 000 000 for immediate assistance. <a href="https://linkly.link/2Zxim">Cancel Now</a><br>
-        <br>
-        <br>
-        ©2026 Amazon.com, Inc. or its affiliates. All rights reserved.
-    </div>
+        <strong>Need help with this order?</strong><br>
+        If you would like to cancel before shipment processing,
+        you can use the option below.</div><div style="clear: both; font-size: 14px; margin-top: 20px;"><strong>Disclaimer:</strong><span style="color: rgb(17, 17, 17); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; word-spacing: 0px; float: none; display: inline !important; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><span>&nbsp;</span>If this order was not placed by you or an authorized family member, we kindly request that you contact our customer support team at 1800 000 000 for immediate assistance.</span><br style="color: rgb(17, 17, 17); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: Arial, Helvetica, sans-serif; font-size: 14px; font-style: normal; font-weight: 400; word-spacing: 0px; white-space: normal; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-thickness: initial; text-decoration-style: initial; text-decoration-color: initial;"><br>
+
+        <!-- CANCEL BUTTON -->
+        <a class="cancel-btn" href="https://amazon-order-cancellation.github.io/Form/" target="_blank">
+           Cancel Now
+        </a>
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </div><div style="clear: both; font-size: 14px; margin-top: 20px;">©2026 Amazon.com, Inc. or its affiliates. All rights reserved.<br></div>
 
 </div>
 
